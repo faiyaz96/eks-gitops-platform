@@ -3,6 +3,10 @@ kind: Service
 metadata:
   name: website-service
   namespace: faiyaz-gitops
+  labels:
+    name: website-service
+    app: gitops
+    environment: dev
 spec:
   selector:
     app: website
@@ -11,7 +15,3 @@ spec:
       port: 80
       targetPort: 80
   type: LoadBalancer
-  labels:
-    name: website-service
-    app: gitops
-    environment: dev
