@@ -31,5 +31,10 @@ jobs:
           aws eks update-kubeconfig --region eu-west-2 --name eks-gitops-platform-dev-eks-cluster
 
       - name: Apply Kubernetes Manifests
-        run: kubectl apply -f k8s/
-        
+        run: |
+          kubectl apply -f k8s/namespace.yaml
+          kubectl apply -f k8s/serviceaccount.yaml
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+      - name: Apply any other Kubernetes Manifests
+        run: kubectl apply -f k8s/                  
