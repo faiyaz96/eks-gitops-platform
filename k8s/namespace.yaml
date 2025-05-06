@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: faiyaz-gitops
+  labels:
+    name: faiyaz-gitops
+    app: gitops
+    environment: dev
+    owner: faiyaz
