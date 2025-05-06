@@ -28,7 +28,7 @@ jobs:
 
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig --region eu-west-2 --name my-cluster
+          aws eks update-kubeconfig --region eu-west-2 --name eks-gitops-platform-dev-eks-cluster
 
       - name: Apply Kubernetes Manifests
         run: kubectl apply -f k8s/
