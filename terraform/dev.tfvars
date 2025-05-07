@@ -1,4 +1,4 @@
-region      = "us-west-2"
+region      = "eu-west-2"
 environemtn = "dev"
 env         = "dev"
 project     = "eks-gitops-platform"

@@ -161,20 +161,20 @@ resource "aws_autoscaling_group" "eks_node_group" {
 
 
 
-# resource "aws_autoscaling_schedule" "scale_down" {
-#   scheduled_action_name  = "${var.project}-${var.env}-scale-down"
-#   autoscaling_group_name = data.aws_autoscaling_group.eks_nodes.name
-#   desired_capacity       = 0
-#   min_size               = 0
-#   max_size               = 0
-#   recurrence             = "0 0 * * *" # Midnight UTC
-# }
+resource "aws_autoscaling_schedule" "scale_down" {
+  scheduled_action_name  = "${var.project}-${var.env}-scale-down"
+  autoscaling_group_name = aws_autoscaling_group.eks_node_group.name
+  desired_capacity       = 0
+  min_size               = 0
+  max_size               = 0
+  recurrence             = "0 0 * * *" # Midnight UTC
+}
 
-# resource "aws_autoscaling_schedule" "scale_up" {
-#   scheduled_action_name  = "${var.project}-${var.env}-scale-up"
-#   autoscaling_group_name = data.aws_autoscaling_group.eks_nodes.name
-#   desired_capacity       = 2
-#   min_size               = 1
-#   max_size               = 3
-#   recurrence             = "0 12 * * *" # Noon UTC
-# }
+resource "aws_autoscaling_schedule" "scale_up" {
+  scheduled_action_name  = "${var.project}-${var.env}-scale-up"
+  autoscaling_group_name = aws_autoscaling_group.eks_node_group.name
+  desired_capacity       = 2
+  min_size               = 1
+  max_size               = 3
+  recurrence             = "0 12 * * *" # Noon UTC
+}
